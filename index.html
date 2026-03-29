@@ -17,116 +17,115 @@ body{font-family:'Nunito',sans-serif;
 @keyframes tw{0%,100%{opacity:.12}50%{opacity:.8}}
 
 .screen{position:fixed;inset:0;z-index:10;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;padding:18px;gap:14px;}
+  align-items:center;justify-content:center;padding:12px;gap:10px;}
 .screen.hidden{display:none!important;}
 
 .glass{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
   border-radius:22px;backdrop-filter:blur(18px);box-shadow:0 8px 32px rgba(0,0,0,.5);
-  padding:26px 28px;width:100%;max-width:540px;}
+  padding:20px 24px;width:100%;max-width:540px;}
 
 @keyframes popIn{from{opacity:0;transform:scale(.78)}to{opacity:1;transform:scale(1)}}
-@keyframes slideUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
-.logo{font-family:'Fredoka One',cursive;font-size:2.4rem;letter-spacing:2px;
+.logo{font-family:'Fredoka One',cursive;font-size:2.2rem;letter-spacing:2px;
   background:linear-gradient(90deg,var(--neon),var(--gold),#f72585);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-.sub{color:rgba(255,255,255,.45);font-size:.9rem;font-weight:700;text-align:center;letter-spacing:1px;}
+.sub{color:rgba(255,255,255,.45);font-size:.8rem;font-weight:700;text-align:center;letter-spacing:1px;}
 
 /* SETUP */
 .cnt-row{display:flex;gap:10px;justify-content:center;margin:4px 0 14px;}
-.cnt-btn{flex:1;max-width:90px;padding:12px 0;border:2px solid rgba(255,255,255,.15);
+.cnt-btn{flex:1;max-width:90px;padding:10px 0;border:2px solid rgba(255,255,255,.15);
   border-radius:13px;background:transparent;color:rgba(255,255,255,.45);
   font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;transition:all .2s;}
 .cnt-btn.on{background:rgba(0,245,212,.15);border-color:var(--neon);color:var(--neon);}
-.player-rows{display:flex;flex-direction:column;gap:9px;margin-bottom:14px;}
+.player-rows{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
 .p-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);
-  border-radius:13px;padding:9px 13px;border-left:5px solid #ccc;}
+  border-radius:12px;padding:8px 12px;border-left:5px solid #ccc;}
 .p-inp{flex:1;background:transparent;border:none;outline:none;
   font-family:'Nunito',sans-serif;font-weight:700;font-size:1.1rem;color:#f0f0f0;}
-.p-inp::placeholder{color:rgba(255,255,255,.28);}
-.diff-row{display:flex;gap:8px;justify-content:center;margin-bottom:16px;}
-.d-btn{flex:1;padding:10px 0;border:2px solid rgba(255,255,255,.15);border-radius:12px;
+.diff-row{display:flex;gap:8px;justify-content:center;margin-bottom:14px;}
+.d-btn{flex:1;padding:8px 0;border:2px solid rgba(255,255,255,.15);border-radius:12px;
   background:transparent;color:rgba(255,255,255,.45);
-  font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;transition:all .2s;}
+  font-family:'Fredoka One',cursive;font-size:.9rem;cursor:pointer;transition:all .2s;}
 .d-btn.on{background:rgba(247,37,133,.15);border-color:#f72585;color:#f72585;}
-.go-btn{width:100%;padding:18px;border:none;border-radius:15px;
+.go-btn{width:100%;padding:16px;border:none;border-radius:15px;
   background:linear-gradient(135deg,#00f5d4,#0077b6);color:#0d1117;
-  font-family:'Fredoka One',cursive;font-size:1.5rem;cursor:pointer;
+  font-family:'Fredoka One',cursive;font-size:1.4rem;cursor:pointer;
   box-shadow:0 6px 20px rgba(0,245,212,.32);transition:transform .1s;}
 
 /* GAME SCREEN */
 #gameScreen{flex-direction:column;padding:0;justify-content:flex-start;}
 .top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;
-  padding:8px 14px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  padding:6px 12px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0;}
-.global-timer{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--gold);}
+.global-timer{font-family:'Fredoka One',cursive;font-size:1.3rem;color:var(--gold);}
 
 .cols{flex:1;width:100%;display:flex;overflow:hidden;}
 .col{flex:1;display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.1);
-  position:relative;overflow:hidden;}
+  position:relative;overflow:hidden;background:rgba(255,255,255,0.01);}
 .col:last-child{border-right:none;}
 
-.col-head{padding:8px;display:flex;flex-direction:column;align-items:center;gap:2px;
+.col-head{padding:6px;display:flex;flex-direction:column;align-items:center;gap:1px;
   border-bottom:3px solid transparent;flex-shrink:0;}
-.col-av{font-size:1.4rem;}
-.col-nm{font-family:'Fredoka One',cursive;font-size:.9rem;
+.col-av{font-size:1.2rem;}
+.col-nm{font-family:'Fredoka One',cursive;font-size:.8rem;
   white-space:nowrap;max-width: 100%; overflow:hidden;}
-.col-sc{font-family:'Fredoka One',cursive;font-size:.85rem;
-  background:rgba(255,255,255,.1);border-radius:20px;padding:2px 10px;}
+.col-sc{font-family:'Fredoka One',cursive;font-size:.8rem;
+  background:rgba(255,255,255,.1);border-radius:20px;padding:2px 8px;}
 
 .col-body{flex:1;display:flex;flex-direction:column;align-items:center;
-  padding:8px 6px;gap:8px;overflow:hidden;}
+  padding:10px 6px;gap:8px;overflow:hidden;justify-content: flex-start;}
 
-/* Expression Area - Larger Text */
+/* Expression Area - LARGE FONT MAINTAINED */
 .expr-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
-  border-radius:14px;padding:12px 6px;width:100%;text-align:center;flex-shrink:0;}
-.expr-txt{font-family:'Fredoka One',cursive;font-size:1.8rem;line-height:1.1;color:#fff;}
+  border-radius:12px;padding:12px 4px;width:100%;text-align:center;flex-shrink:0;}
+.expr-txt{font-family:'Fredoka One',cursive;font-size:1.8rem;line-height:1;color:#fff;}
 .expr-txt .vr{color:var(--neon);animation:bounce 1.2s ease infinite;display:inline-block;}
-.expr-hint{font-size:.75rem;font-weight:900;color:rgba(255,255,255,.45);margin-top:4px;text-transform:uppercase;}
+.expr-hint{font-size:.7rem;font-weight:900;color:rgba(255,255,255,.45);margin-top:4px;text-transform:uppercase;}
 
-/* Answer Area - Larger Text */
-.ans-disp{width:100%;padding:10px;text-align:center;
+/* Answer Area - LARGE FONT MAINTAINED */
+.ans-disp{width:100%;padding:6px;text-align:center;
   background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);
-  border-radius:12px;font-family:'Fredoka One',cursive;font-size:1.8rem;
+  border-radius:10px;font-family:'Fredoka One',cursive;font-size:1.8rem;
   color:#f0f0f0;min-height:50px;letter-spacing:3px;
-  transition:all .2s;flex-shrink:0;}
+  transition:all .2s;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  margin-bottom: 4px;}
 .ans-disp.ok{border-color:#66BB6A;background:rgba(102,187,106,.22);}
 .ans-disp.no{border-color:#EF5350;background:rgba(239,83,80,.18);animation:shake .3s;}
-.ans-disp.empty{color:rgba(255,255,255,.15);}
+.ans-disp.empty{color:rgba(255,255,255,.1);}
 
-/* Compact & Integrated Numpad */
-.numpad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:100%;flex: 1; min-height: 0;}
-.np-btn{border:none;border-radius:10px;font-family:'Fredoka One',cursive;font-size:1.2rem;
+/* TIDY NUMPAD - Centered vertically, not at the absolute bottom */
+.numpad{display:grid;grid-template-columns:repeat(3, 1fr);gap:4px;width:100%;
+  max-height: 240px; aspect-ratio: 3/4;}
+.np-btn{border:none;border-radius:8px;font-family:'Fredoka One',cursive;font-size:1.2rem;
   cursor:pointer;transition:transform .08s, background .1s;
   background:rgba(255,255,255,.1);color:#f0f0f0;
   border:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:center;
-  user-select:none; height: 100%;}
-.np-btn:active{transform:scale(.92);background:rgba(255,255,255,.2);}
-.np-btn.del{background:rgba(255,100,100,.15);color:#ff9999;}
-.np-btn.sub{background:linear-gradient(135deg, #00f5d4, #00b4d8); color:#0d1117; 
-  font-size: 1.1rem; grid-column: span 1;}
+  user-select:none;}
+.np-btn:active{transform:scale(.92);background:rgba(255,255,255,.25);}
+.np-btn.del{background:rgba(255,100,100,0.15);color:#ff9999;}
+.np-btn.sub{background:linear-gradient(135deg, #00f5d4, #00b4d8); color:#0d1117; grid-column: span 1;}
 
-.fb{font-family:'Fredoka One',cursive;font-size:.85rem;min-height:20px; text-align:center;flex-shrink:0;}
+.fb{font-family:'Fredoka One',cursive;font-size:.8rem;min-height:18px; text-align:center;flex-shrink:0;margin-top:4px;}
 .fb.ok{color:#66BB6A;}.fb.no{color:#EF5350;}
 
 /* Progress & Timer */
-.timer-row{display:flex;align-items:center;gap:8px;width:100%;justify-content: center;}
-.ring-wrap{position:relative;width:40px;height:40px;}
-.ring-wrap svg{transform:rotate(-90deg);}
+.timer-row{display:flex;align-items:center;gap:6px;width:100%;justify-content: center;flex-shrink:0;margin-bottom:4px;}
+.ring-wrap{position:relative;width:34px;height:34px;}
+.ring-wrap svg{transform:rotate(-90deg);width:34px;height:34px;}
 .ring-bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:4;}
 .ring-fg{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset .1s linear,stroke .3s;}
 .ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Fredoka One',cursive;font-size:.9rem;}
+  font-family:'Fredoka One',cursive;font-size:.75rem;}
 
 .col-dots{display:flex;gap:3px;flex-wrap:nowrap;justify-content:center;overflow: hidden;}
-.cd{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);
+.cd{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.1);
   border:1.5px solid rgba(255,255,255,.15);transition:all .2s;}
 .cd.ok{background:#66BB6A;border-color:#388E3C;}
 .cd.no{background:#EF5350;border-color:#BF360C;}
-.cd.cur{background:var(--gold);border-color:#F9A825;transform:scale(1.25);box-shadow: 0 0 8px var(--gold);}
+.cd.cur{background:var(--gold);border-color:#F9A825;transform:scale(1.2);box-shadow: 0 0 6px var(--gold);}
 
 /* Winner display */
 .col-winner{position:absolute;inset:0;display:flex;flex-direction:column;
@@ -134,6 +133,11 @@ body{font-family:'Nunito',sans-serif;
   background:rgba(0,0,0,.85);backdrop-filter:blur(6px);
   opacity:0;pointer-events:none;transition:opacity .4s;}
 .col-winner.show{opacity:1;pointer-events:auto;}
+
+@media (max-width: 800px) {
+  .expr-txt { font-size: 1.5rem; }
+  .ans-disp { font-size: 1.5rem; }
+}
 </style>
 </head>
 <body>
@@ -144,14 +148,14 @@ body{font-family:'Nunito',sans-serif;
   <div class="logo">⚡ Өрнек Жарысы</div>
   <p class="sub">ТЕЗІРЕК ЕСЕПТЕ • ЖЕҢІСКЕ ЖЕТ</p>
   <div class="glass" style="animation:popIn .5s cubic-bezier(.34,1.56,.64,1)">
-    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ойыншылар саны</p>
+    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Ойыншылар саны</p>
     <div class="cnt-row">
       <button class="cnt-btn" onclick="setCnt(2,this)">2</button>
       <button class="cnt-btn on" onclick="setCnt(3,this)">3</button>
       <button class="cnt-btn" onclick="setCnt(4,this)">4</button>
     </div>
     <div class="player-rows" id="pRows"></div>
-    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Қиындық</p>
+    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.75rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px">Қиындық</p>
     <div class="diff-row">
       <button class="d-btn on" onclick="setDiff('easy',this)">🌱 Оңай</button>
       <button class="d-btn" onclick="setDiff('medium',this)">🔥 Орта</button>
@@ -169,9 +173,9 @@ body{font-family:'Nunito',sans-serif;
 <!-- GAME -->
 <div class="screen hidden" id="gameScreen">
   <div class="top-bar">
-    <div style="font-family:'Fredoka One';font-size:1.1rem;color:var(--neon)">⚡ RACE</div>
+    <div style="font-family:'Fredoka One';font-size:1rem;color:var(--neon)">⚡ RACE</div>
     <div class="global-timer">⏱ <span id="globalClock">0:00</span></div>
-    <div style="font-family:'Fredoka One';font-size:.8rem;color:rgba(255,255,255,.3)">10 СҰРАҚ</div>
+    <div style="font-family:'Fredoka One';font-size:.75rem;color:rgba(255,255,255,0.3)">10 СҰРАҚ</div>
   </div>
   <div class="cols" id="colsWrap"></div>
 </div>
@@ -208,7 +212,6 @@ const COLORS=['#ff6b6b','#4ecdc4','#ffe66d','#a29bfe'];
 const AVATARS=['🦁','🦊','🐺','🐯'];
 let diff='easy',cnt=3,players=[],globalStart=0,globalTick=null,finished=0;
 
-/* SETUP FUNCTIONS */
 setCnt(3,null);
 function setCnt(n,btn){
   cnt=n;
@@ -233,7 +236,6 @@ function buildPRows(){
   }
 }
 
-/* GAME CORE */
 function initGame(){
   players=[];
   const pool=shuffle([...QDB[diff]]);
@@ -284,7 +286,7 @@ function buildCols(){
       <div class="col-body">
         <div class="timer-row">
            <div class="ring-wrap">
-            <svg width="40" height="40"><circle class="ring-bg" cx="20" cy="20" r="16"/><circle class="ring-fg" id="rfg${i}" cx="20" cy="20" r="16" stroke="${p.color}" stroke-dasharray="100.5" stroke-dashoffset="0"/></svg>
+            <svg viewBox="0 0 40 40"><circle class="ring-bg" cx="20" cy="20" r="16"/><circle class="ring-fg" id="rfg${i}" cx="20" cy="20" r="16" stroke="${p.color}" stroke-dasharray="100.5" stroke-dashoffset="0"/></svg>
             <div class="ring-num" id="rn${i}">15</div>
           </div>
           <div class="col-dots" id="dots${i}"></div>
@@ -294,13 +296,13 @@ function buildCols(){
           <div class="expr-hint" id="ht${i}"></div>
         </div>
         <div class="ans-disp empty" id="dp${i}">?</div>
-        <div class="fb" id="fb${i}"></div>
         <div class="numpad">
           ${[7,8,9,4,5,6,1,2,3].map(n=>`<button class="np-btn" onclick="press(${i},${n})">${n}</button>`).join('')}
           <button class="np-btn del" onclick="del(${i})">⌫</button>
           <button class="np-btn" onclick="press(${i},0)">0</button>
           <button class="np-btn sub" onclick="submit(${i})">✓</button>
         </div>
+        <div class="fb" id="fb${i}"></div>
       </div>
       <div class="col-winner" id="win${i}">
         <div style="font-size:3rem">👑</div>
@@ -334,8 +336,10 @@ function nextQuestion(pi){
 function updateTimerUI(pi){
   const p=players[pi];
   const offset=100.5 * (1 - p.timeLeft/15);
-  document.getElementById('rfg'+pi).style.strokeDashoffset=offset;
-  document.getElementById('rn'+pi).textContent=p.timeLeft;
+  const rfg = document.getElementById('rfg'+pi);
+  if(rfg) rfg.style.strokeDashoffset=offset;
+  const rn = document.getElementById('rn'+pi);
+  if(rn) rn.textContent=p.timeLeft;
 }
 
 function press(pi, n){
@@ -423,7 +427,6 @@ function shuffle(arr){
   return arr;
 }
 
-// Stars BG
 const starWrap=document.getElementById('stars');
 for(let i=0;i<50;i++){
   const s=document.createElement('div');
