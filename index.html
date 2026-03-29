@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>⚡ Өрнек Жарысы</title>
+<title>⚡ Өрнек Жарысы 2.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap" rel="stylesheet">
 <style>
 :root{--neon:#00f5d4;--gold:#FFD700;--c0:#ff6b6b;--c1:#4ecdc4;--c2:#ffe66d;--c3:#a29bfe;}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
-html,body{height:100%;overflow:hidden;}
+html,body{height:100%;overflow:hidden;touch-action: manipulation;}
 body{font-family:'Nunito',sans-serif;
   background:radial-gradient(ellipse at 20% 50%,#1a1a2e,#16213e 55%,#0f3460);color:#f0f0f0;}
 
@@ -29,171 +29,111 @@ body{font-family:'Nunito',sans-serif;
 @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
-.logo{font-family:'Fredoka One',cursive;font-size:2.1rem;letter-spacing:2px;
+.logo{font-family:'Fredoka One',cursive;font-size:2.4rem;letter-spacing:2px;
   background:linear-gradient(90deg,var(--neon),var(--gold),#f72585);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-.sub{color:rgba(255,255,255,.45);font-size:.86rem;font-weight:700;text-align:center;letter-spacing:1px;}
+.sub{color:rgba(255,255,255,.45);font-size:.9rem;font-weight:700;text-align:center;letter-spacing:1px;}
 
 /* SETUP */
 .cnt-row{display:flex;gap:10px;justify-content:center;margin:4px 0 14px;}
-.cnt-btn{flex:1;max-width:90px;padding:11px 0;border:2px solid rgba(255,255,255,.15);
+.cnt-btn{flex:1;max-width:90px;padding:12px 0;border:2px solid rgba(255,255,255,.15);
   border-radius:13px;background:transparent;color:rgba(255,255,255,.45);
-  font-family:'Fredoka One',cursive;font-size:1.05rem;cursor:pointer;transition:all .2s;}
+  font-family:'Fredoka One',cursive;font-size:1.1rem;cursor:pointer;transition:all .2s;}
 .cnt-btn.on{background:rgba(0,245,212,.15);border-color:var(--neon);color:var(--neon);}
 .player-rows{display:flex;flex-direction:column;gap:9px;margin-bottom:14px;}
 .p-row{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.05);
   border-radius:13px;padding:9px 13px;border-left:5px solid #ccc;}
 .p-inp{flex:1;background:transparent;border:none;outline:none;
-  font-family:'Nunito',sans-serif;font-weight:700;font-size:1rem;color:#f0f0f0;}
+  font-family:'Nunito',sans-serif;font-weight:700;font-size:1.1rem;color:#f0f0f0;}
 .p-inp::placeholder{color:rgba(255,255,255,.28);}
 .diff-row{display:flex;gap:8px;justify-content:center;margin-bottom:16px;}
-.d-btn{flex:1;padding:9px 0;border:2px solid rgba(255,255,255,.15);border-radius:12px;
+.d-btn{flex:1;padding:10px 0;border:2px solid rgba(255,255,255,.15);border-radius:12px;
   background:transparent;color:rgba(255,255,255,.45);
-  font-family:'Fredoka One',cursive;font-size:.95rem;cursor:pointer;transition:all .2s;}
+  font-family:'Fredoka One',cursive;font-size:1rem;cursor:pointer;transition:all .2s;}
 .d-btn.on{background:rgba(247,37,133,.15);border-color:#f72585;color:#f72585;}
-.go-btn{width:100%;padding:15px;border:none;border-radius:15px;
+.go-btn{width:100%;padding:18px;border:none;border-radius:15px;
   background:linear-gradient(135deg,#00f5d4,#0077b6);color:#0d1117;
-  font-family:'Fredoka One',cursive;font-size:1.35rem;cursor:pointer;
+  font-family:'Fredoka One',cursive;font-size:1.5rem;cursor:pointer;
   box-shadow:0 6px 20px rgba(0,245,212,.32);transition:transform .1s;}
-.go-btn:active{transform:translateY(3px);}
 
-/* COUNTDOWN */
-#cdScreen{background:rgba(0,0,0,.9);}
-.cd-num{font-family:'Fredoka One',cursive;font-size:8rem;
-  background:linear-gradient(135deg,var(--neon),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  animation:popIn .4s cubic-bezier(.34,1.56,.64,1);}
-.cd-txt{font-family:'Fredoka One',cursive;font-size:1.5rem;color:rgba(255,255,255,.65);margin-top:8px;}
-
-/* GAME */
+/* GAME SCREEN */
 #gameScreen{flex-direction:column;padding:0;justify-content:flex-start;}
 .top-bar{width:100%;display:flex;align-items:center;justify-content:space-between;
-  padding:6px 14px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);
+  padding:8px 14px;background:rgba(0,0,0,.45);backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0;}
-.top-title{font-family:'Fredoka One',cursive;font-size:1rem;
-  background:linear-gradient(90deg,var(--neon),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.global-timer{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--gold);}
-.top-hint{font-family:'Fredoka One',cursive;font-size:.82rem;color:rgba(255,255,255,.38);}
+.global-timer{font-family:'Fredoka One',cursive;font-size:1.4rem;color:var(--gold);}
 
 .cols{flex:1;width:100%;display:flex;overflow:hidden;}
-.col{flex:1;display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.07);
+.col{flex:1;display:flex;flex-direction:column;border-right:1px solid rgba(255,255,255,.1);
   position:relative;overflow:hidden;}
 .col:last-child{border-right:none;}
 
-/* col header */
-.col-head{padding:5px 7px 4px;display:flex;align-items:center;gap:6px;
+.col-head{padding:8px;display:flex;flex-direction:column;align-items:center;gap:2px;
   border-bottom:3px solid transparent;flex-shrink:0;}
-.col-av{font-size:1.2rem;}
-.col-nm{font-family:'Fredoka One',cursive;font-size:.88rem;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-.col-sc{margin-left:auto;font-family:'Fredoka One',cursive;font-size:.82rem;
-  background:rgba(255,255,255,.1);border-radius:20px;padding:1px 8px;white-space:nowrap;}
+.col-av{font-size:1.4rem;}
+.col-nm{font-family:'Fredoka One',cursive;font-size:.9rem;
+  white-space:nowrap;max-width: 100%; overflow:hidden;}
+.col-sc{font-family:'Fredoka One',cursive;font-size:.85rem;
+  background:rgba(255,255,255,.1);border-radius:20px;padding:2px 10px;}
 
-.col-prog{height:3px;width:100%;background:rgba(255,255,255,.07);flex-shrink:0;}
-.col-prog-fill{height:100%;width:0%;transition:width .4s ease;}
-
-/* body */
 .col-body{flex:1;display:flex;flex-direction:column;align-items:center;
-  padding:5px 5px 4px;gap:4px;overflow:hidden;}
+  padding:8px 6px;gap:8px;overflow:hidden;}
 
-/* timer row */
-.timer-row{display:flex;align-items:center;gap:5px;width:100%;}
-.ring-wrap{position:relative;width:36px;height:36px;flex-shrink:0;}
+/* Expression Area - Larger Text */
+.expr-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:14px;padding:12px 6px;width:100%;text-align:center;flex-shrink:0;}
+.expr-txt{font-family:'Fredoka One',cursive;font-size:1.8rem;line-height:1.1;color:#fff;}
+.expr-txt .vr{color:var(--neon);animation:bounce 1.2s ease infinite;display:inline-block;}
+.expr-hint{font-size:.75rem;font-weight:900;color:rgba(255,255,255,.45);margin-top:4px;text-transform:uppercase;}
+
+/* Answer Area - Larger Text */
+.ans-disp{width:100%;padding:10px;text-align:center;
+  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);
+  border-radius:12px;font-family:'Fredoka One',cursive;font-size:1.8rem;
+  color:#f0f0f0;min-height:50px;letter-spacing:3px;
+  transition:all .2s;flex-shrink:0;}
+.ans-disp.ok{border-color:#66BB6A;background:rgba(102,187,106,.22);}
+.ans-disp.no{border-color:#EF5350;background:rgba(239,83,80,.18);animation:shake .3s;}
+.ans-disp.empty{color:rgba(255,255,255,.15);}
+
+/* Compact & Integrated Numpad */
+.numpad{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:100%;flex: 1; min-height: 0;}
+.np-btn{border:none;border-radius:10px;font-family:'Fredoka One',cursive;font-size:1.2rem;
+  cursor:pointer;transition:transform .08s, background .1s;
+  background:rgba(255,255,255,.1);color:#f0f0f0;
+  border:1px solid rgba(255,255,255,.08);
+  display:flex;align-items:center;justify-content:center;
+  user-select:none; height: 100%;}
+.np-btn:active{transform:scale(.92);background:rgba(255,255,255,.2);}
+.np-btn.del{background:rgba(255,100,100,.15);color:#ff9999;}
+.np-btn.sub{background:linear-gradient(135deg, #00f5d4, #00b4d8); color:#0d1117; 
+  font-size: 1.1rem; grid-column: span 1;}
+
+.fb{font-family:'Fredoka One',cursive;font-size:.85rem;min-height:20px; text-align:center;flex-shrink:0;}
+.fb.ok{color:#66BB6A;}.fb.no{color:#EF5350;}
+
+/* Progress & Timer */
+.timer-row{display:flex;align-items:center;gap:8px;width:100%;justify-content: center;}
+.ring-wrap{position:relative;width:40px;height:40px;}
 .ring-wrap svg{transform:rotate(-90deg);}
 .ring-bg{fill:none;stroke:rgba(255,255,255,.1);stroke-width:4;}
 .ring-fg{fill:none;stroke-width:4;stroke-linecap:round;transition:stroke-dashoffset .1s linear,stroke .3s;}
 .ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-family:'Fredoka One',cursive;font-size:.78rem;}
+  font-family:'Fredoka One',cursive;font-size:.9rem;}
 
-/* dots inline */
-.col-dots{display:flex;gap:2px;flex-wrap:nowrap;justify-content:center;flex:1;}
-.cd{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.12);
-  border:2px solid rgba(255,255,255,.18);transition:all .22s;flex-shrink:0;}
+.col-dots{display:flex;gap:3px;flex-wrap:nowrap;justify-content:center;overflow: hidden;}
+.cd{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.1);
+  border:1.5px solid rgba(255,255,255,.15);transition:all .2s;}
 .cd.ok{background:#66BB6A;border-color:#388E3C;}
 .cd.no{background:#EF5350;border-color:#BF360C;}
-.cd.cur{background:var(--gold);border-color:#F9A825;transform:scale(1.3);}
+.cd.cur{background:var(--gold);border-color:#F9A825;transform:scale(1.25);box-shadow: 0 0 8px var(--gold);}
 
-/* expression */
-.expr-box{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.11);
-  border-radius:11px;padding:7px 5px;width:100%;text-align:center;flex-shrink:0;}
-.expr-txt{font-family:'Fredoka One',cursive;font-size:1.35rem;line-height:1.2;}
-.expr-txt .vr{color:var(--neon);animation:bounce 1s ease infinite;display:inline-block;}
-.expr-hint{font-size:.65rem;font-weight:700;color:rgba(255,255,255,.36);margin-top:2px;}
-
-/* answer display */
-.ans-disp{width:100%;padding:6px;text-align:center;
-  background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.15);
-  border-radius:10px;font-family:'Fredoka One',cursive;font-size:1.3rem;
-  color:#f0f0f0;min-height:40px;letter-spacing:2px;
-  transition:border-color .2s,background .2s;flex-shrink:0;}
-.ans-disp.ok{border-color:#66BB6A;background:rgba(102,187,106,.18);}
-.ans-disp.no{border-color:#EF5350;background:rgba(239,83,80,.15);animation:shake .3s;}
-.ans-disp.empty{color:rgba(255,255,255,.22);}
-
-/* feedback */
-.fb{font-family:'Fredoka One',cursive;font-size:.75rem;min-height:16px;
-  text-align:center;flex-shrink:0;line-height:1;}
-.fb.ok{color:#66BB6A;}.fb.no{color:#EF5350;}
-
-/* NUMPAD */
-.numpad{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;width:100%;flex-shrink:0;}
-.np-btn{border:none;border-radius:8px;font-family:'Fredoka One',cursive;font-size:1rem;
-  cursor:pointer;transition:transform .08s,filter .1s;
-  background:rgba(255,255,255,.11);color:#f0f0f0;
-  border:1px solid rgba(255,255,255,.13);
-  aspect-ratio:1.6;display:flex;align-items:center;justify-content:center;
-  user-select:none;-webkit-user-select:none;}
-.np-btn:active{transform:scale(.9);filter:brightness(.75);}
-.np-btn.del{background:rgba(255,100,100,.18);color:#ff9999;border-color:rgba(255,100,100,.28);}
-.np-btn.sub{background:rgba(0,245,212,.16);color:var(--neon);border-color:rgba(0,245,212,.32);
-  grid-column:span 3;aspect-ratio:auto;padding:7px 0;font-size:.9rem;}
-.np-btn.sub:disabled{opacity:.32;cursor:not-allowed;}
-
-/* winner overlay */
+/* Winner display */
 .col-winner{position:absolute;inset:0;display:flex;flex-direction:column;
   align-items:center;justify-content:center;z-index:30;
-  background:rgba(0,0,0,.78);backdrop-filter:blur(5px);
+  background:rgba(0,0,0,.85);backdrop-filter:blur(6px);
   opacity:0;pointer-events:none;transition:opacity .4s;}
 .col-winner.show{opacity:1;pointer-events:auto;}
-.w-crown{font-size:2.8rem;animation:bounce 1s ease infinite;}
-.w-txt{font-family:'Fredoka One',cursive;font-size:1.2rem;color:var(--gold);
-  text-shadow:0 0 16px var(--gold);text-align:center;padding:0 6px;}
-.w-sc{font-family:'Fredoka One',cursive;font-size:.82rem;color:rgba(255,255,255,.6);margin-top:4px;}
-
-/* RESULT */
-#resultScreen{background:rgba(0,0,0,.94);}
-.r-title{font-family:'Fredoka One',cursive;font-size:1.7rem;
-  background:linear-gradient(90deg,var(--neon),var(--gold));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center;}
-.podium{display:flex;align-items:flex-end;justify-content:center;gap:10px;margin:10px 0;}
-.pod-col{display:flex;flex-direction:column;align-items:center;gap:4px;}
-.pod-block{width:72px;display:flex;align-items:center;justify-content:center;
-  font-family:'Fredoka One',cursive;font-size:1.3rem;color:#0d1117;border-radius:9px 9px 0 0;}
-.pod-name{font-family:'Fredoka One',cursive;font-size:.78rem;color:rgba(255,255,255,.8);
-  max-width:72px;text-align:center;word-break:break-word;}
-.pod-score{font-family:'Fredoka One',cursive;font-size:.72rem;color:rgba(255,255,255,.42);}
-.lb-list{width:100%;max-width:440px;}
-.lb-row{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:13px;margin:5px 0;
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
-  animation:slideUp .4s ease both;}
-.lb-rank{font-family:'Fredoka One',cursive;font-size:1.4rem;width:32px;text-align:center;}
-.lb-av{font-size:1.4rem;}
-.lb-nm{font-family:'Fredoka One',cursive;font-size:.98rem;}
-.lb-dt{font-size:.73rem;font-weight:700;color:rgba(255,255,255,.36);}
-.lb-sc{font-family:'Fredoka One',cursive;font-size:1.15rem;margin-left:auto;}
-.again-btn{width:100%;max-width:400px;padding:14px;border:none;border-radius:14px;
-  background:linear-gradient(135deg,#00f5d4,#0077b6);color:#0d1117;
-  font-family:'Fredoka One',cursive;font-size:1.2rem;cursor:pointer;margin-top:6px;
-  box-shadow:0 5px 18px rgba(0,245,212,.28);}
-
-/* fx */
-.pt{position:fixed;pointer-events:none;font-size:1.3rem;
-  animation:ptUp 1.3s ease-out forwards;z-index:999;}
-@keyframes ptUp{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-120px) scale(1.8)}}
-.fw{position:fixed;pointer-events:none;width:7px;height:7px;border-radius:50%;
-  animation:fwex .8s ease-out forwards;z-index:998;}
-@keyframes fwex{0%{transform:scale(1);opacity:1}100%{transform:scale(16);opacity:0}}
 </style>
 </head>
 <body>
@@ -202,18 +142,18 @@ body{font-family:'Nunito',sans-serif;
 <!-- SETUP -->
 <div class="screen" id="setupScreen">
   <div class="logo">⚡ Өрнек Жарысы</div>
-  <p class="sub">БІР УАҚЫТТА • ӘР ОЙЫНШЫҒА ӘР ТҮРЛІ СҰРАҚ • БАТЫРМАЛАР</p>
+  <p class="sub">ТЕЗІРЕК ЕСЕПТЕ • ЖЕҢІСКЕ ЖЕТ</p>
   <div class="glass" style="animation:popIn .5s cubic-bezier(.34,1.56,.64,1)">
-    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px">Ойыншылар саны</p>
+    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Ойыншылар саны</p>
     <div class="cnt-row">
       <button class="cnt-btn" onclick="setCnt(2,this)">2</button>
       <button class="cnt-btn on" onclick="setCnt(3,this)">3</button>
       <button class="cnt-btn" onclick="setCnt(4,this)">4</button>
     </div>
     <div class="player-rows" id="pRows"></div>
-    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.76rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:9px">Қиындық деңгейі</p>
+    <p style="font-weight:700;color:rgba(255,255,255,.42);font-size:.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">Қиындық</p>
     <div class="diff-row">
-      <button class="d-btn on" onclick="setDiff('easy',this)">🌱 Жеңіл</button>
+      <button class="d-btn on" onclick="setDiff('easy',this)">🌱 Оңай</button>
       <button class="d-btn" onclick="setDiff('medium',this)">🔥 Орта</button>
       <button class="d-btn" onclick="setDiff('hard',this)">🚀 Қиын</button>
     </div>
@@ -222,454 +162,277 @@ body{font-family:'Nunito',sans-serif;
 </div>
 
 <!-- COUNTDOWN -->
-<div class="screen hidden" id="cdScreen">
-  <div class="cd-num" id="cdNum">3</div>
-  <div class="cd-txt" id="cdTxt">Дайын бол...</div>
+<div class="screen hidden" id="cdScreen" style="background:rgba(0,0,0,0.95)">
+  <div id="cdNum" style="font-family:'Fredoka One';font-size:10rem;color:var(--neon);text-shadow:0 0 30px var(--neon)">3</div>
 </div>
 
 <!-- GAME -->
 <div class="screen hidden" id="gameScreen">
   <div class="top-bar">
-    <div class="top-title">⚡ Өрнек Жарысы</div>
+    <div style="font-family:'Fredoka One';font-size:1.1rem;color:var(--neon)">⚡ RACE</div>
     <div class="global-timer">⏱ <span id="globalClock">0:00</span></div>
-    <div class="top-hint">Кім бірінші 10 бітіреді?</div>
+    <div style="font-family:'Fredoka One';font-size:.8rem;color:rgba(255,255,255,.3)">10 СҰРАҚ</div>
   </div>
   <div class="cols" id="colsWrap"></div>
 </div>
 
 <!-- RESULT -->
-<div class="screen hidden" id="resultScreen">
-  <div class="r-title">🏆 Жарыс аяқталды!</div>
-  <div class="podium" id="podium"></div>
-  <div class="lb-list" id="lbList"></div>
-  <button class="again-btn" onclick="backSetup()">🔄 Қайтадан ойнау</button>
+<div class="screen hidden" id="resultScreen" style="background:rgba(10,10,20,0.98)">
+  <div class="logo">🏁 НӘТИЖЕЛЕР</div>
+  <div id="podium" style="display:flex;gap:20px;align-items:flex-end;margin:30px 0"></div>
+  <div id="lbList" style="width:100%;max-width:500px"></div>
+  <button class="go-btn" onclick="location.reload()" style="max-width:300px;margin-top:20px">ҚАЙТАДАН</button>
 </div>
 
 <script>
-/* ─── 40 unique questions per difficulty ─── */
 const QDB={
   easy:[
-    {e:'a + 3',h:'a=4',a:4,ans:7},{e:'2·a',h:'a=5',a:5,ans:10},
-    {e:'a + a',h:'a=6',a:6,ans:12},{e:'10 − a',h:'a=3',a:3,ans:7},
-    {e:'a + 7',h:'a=2',a:2,ans:9},{e:'3·a',h:'a=3',a:3,ans:9},
-    {e:'a − 1',h:'a=8',a:8,ans:7},{e:'a + 10',h:'a=5',a:5,ans:15},
-    {e:'2·a + 1',h:'a=4',a:4,ans:9},{e:'a · a',h:'a=3',a:3,ans:9},
-    {e:'5 + a',h:'a=6',a:6,ans:11},{e:'a · 4',h:'a=2',a:2,ans:8},
-    {e:'a − 2',h:'a=9',a:9,ans:7},{e:'6 + a',h:'a=7',a:7,ans:13},
-    {e:'a + 1',h:'a=9',a:9,ans:10},{e:'4 · a',h:'a=4',a:4,ans:16},
-    {e:'a + 8',h:'a=3',a:3,ans:11},{e:'2 + a',h:'a=8',a:8,ans:10},
-    {e:'a · 5',h:'a=2',a:2,ans:10},{e:'12 − a',h:'a=4',a:4,ans:8},
-    {e:'a + 4',h:'a=5',a:5,ans:9},{e:'3 + a',h:'a=7',a:7,ans:10},
-    {e:'a · 2',h:'a=7',a:7,ans:14},{e:'9 − a',h:'a=2',a:2,ans:7},
-    {e:'a + 6',h:'a=4',a:4,ans:10},{e:'8 − a',h:'a=3',a:3,ans:5},
-    {e:'a + 9',h:'a=6',a:6,ans:15},{e:'a · 3',h:'a=4',a:4,ans:12},
-    {e:'7 + a',h:'a=5',a:5,ans:12},{e:'15 − a',h:'a=6',a:6,ans:9},
-    {e:'a + 2',h:'a=7',a:7,ans:9},{e:'a · 6',h:'a=2',a:2,ans:12},
-    {e:'11 − a',h:'a=4',a:4,ans:7},{e:'a + 5',h:'a=8',a:8,ans:13},
-    {e:'2·a',h:'a=3',a:3,ans:6},{e:'a − 3',h:'a=10',a:10,ans:7},
-    {e:'4 + a',h:'a=6',a:6,ans:10},{e:'a · 1',h:'a=9',a:9,ans:9},
-    {e:'a − 4',h:'a=7',a:7,ans:3},{e:'5 · a',h:'a=3',a:3,ans:15},
+    {e:'a + 5',h:'a=7',ans:12},{e:'a − 4',h:'a=10',ans:6},{e:'2 · a',h:'a=6',ans:12},{e:'a + a',h:'a=8',ans:16},
+    {e:'3 · a',h:'a=4',ans:12},{e:'12 − a',h:'a=5',ans:7},{e:'a + 9',h:'a=3',ans:12},{e:'a · 4',h:'a=2',ans:8},
+    {e:'20 − a',h:'a=11',ans:9},{e:'a + 7',h:'a=6',ans:13},{e:'a · a',h:'a=4',ans:16},{e:'15 + a',h:'a=5',ans:20},
+    {e:'a − 8',h:'a=15',ans:7},{e:'a · 5',h:'a=3',ans:15},{e:'a + 12',h:'a=8',ans:20},{e:'18 − a',h:'a=9',ans:9}
   ],
   medium:[
-    {e:'3·a + 2',h:'a=4',a:4,ans:14},{e:'a·a + a',h:'a=3',a:3,ans:12},
-    {e:'2·a − 5',h:'a=7',a:7,ans:9},{e:'(a+2)·3',h:'a=4',a:4,ans:18},
-    {e:'5·a − a',h:'a=3',a:3,ans:12},{e:'10 − 2·a',h:'a=3',a:3,ans:4},
-    {e:'a·(a+1)',h:'a=4',a:4,ans:20},{e:'3·a + a',h:'a=5',a:5,ans:20},
-    {e:'(a−1)·2',h:'a=6',a:6,ans:10},{e:'4·a − 3',h:'a=3',a:3,ans:9},
-    {e:'a + 2·a',h:'a=4',a:4,ans:12},{e:'2·(a+3)',h:'a=5',a:5,ans:16},
-    {e:'a·3 − 2',h:'a=4',a:4,ans:10},{e:'(a+1)·4',h:'a=3',a:3,ans:16},
-    {e:'6·a − 2',h:'a=2',a:2,ans:10},{e:'a·(a−1)',h:'a=5',a:5,ans:20},
-    {e:'3·a − 1',h:'a=4',a:4,ans:11},{e:'2·a + 4',h:'a=3',a:3,ans:10},
-    {e:'(a+3)·2',h:'a=3',a:3,ans:12},{e:'a·4 − a',h:'a=3',a:3,ans:9},
-    {e:'5 + 2·a',h:'a=4',a:4,ans:13},{e:'(a+1)·3',h:'a=4',a:4,ans:15},
-    {e:'a·a − 1',h:'a=4',a:4,ans:15},{e:'4·a + 2',h:'a=3',a:3,ans:14},
-    {e:'(a−2)·3',h:'a=5',a:5,ans:9},{e:'2·a·a',h:'a=3',a:3,ans:18},
-    {e:'a·6 − a',h:'a=2',a:2,ans:10},{e:'(a+4)·2',h:'a=3',a:3,ans:14},
-    {e:'3·a + 3',h:'a=4',a:4,ans:15},{e:'a·(3+1)',h:'a=4',a:4,ans:16},
-    {e:'8 − a·2',h:'a=3',a:3,ans:2},{e:'a + 3·a',h:'a=3',a:3,ans:12},
-    {e:'(a+5)·2',h:'a=2',a:2,ans:14},{e:'5·a − 4',h:'a=3',a:3,ans:11},
-    {e:'2·(a−1)',h:'a=6',a:6,ans:10},{e:'a·7 − a',h:'a=2',a:2,ans:12},
-    {e:'(a+2)·4',h:'a=3',a:3,ans:20},{e:'a·a + 2',h:'a=4',a:4,ans:18},
-    {e:'3·(a+2)',h:'a=4',a:4,ans:18},{e:'6·a − 5',h:'a=3',a:3,ans:13},
+    {e:'2a + 3',h:'a=5',ans:13},{e:'(a+1)·2',h:'a=6',ans:14},{e:'a² + 1',h:'a=4',ans:17},{e:'3a − 5',h:'a=4',ans:7},
+    {e:'10 + 2a',h:'a=3',ans:16},{e:'(a−2)·4',h:'a=5',ans:12},{e:'a(a+1)',h:'a=3',ans:12},{e:'20 − 3a',h:'a=4',ans:8},
+    {e:'a² − a',h:'a=5',ans:20},{e:'(a+3)·3',h:'a=4',ans:21},{e:'5a + a',h:'a=3',ans:18},{e:'2(a+5)',h:'a=4',ans:18}
   ],
   hard:[
-    {e:'2a² − 3',h:'a=3',a:3,ans:15},{e:'a(2a+1)',h:'a=3',a:3,ans:21},
-    {e:'(a+3)(a−1)',h:'a=4',a:4,ans:21},{e:'3a²+2a',h:'a=2',a:2,ans:16},
-    {e:'a³ − a',h:'a=3',a:3,ans:24},{e:'5a − a²',h:'a=3',a:3,ans:6},
-    {e:'(a+1)²−1',h:'a=4',a:4,ans:24},{e:'a·a·a',h:'a=2',a:2,ans:8},
-    {e:'4a−3(a−1)',h:'a=5',a:5,ans:8},{e:'(2a−1)²',h:'a=3',a:3,ans:25},
-    {e:'a²−2a',h:'a=5',a:5,ans:15},{e:'(a+2)(a−2)',h:'a=5',a:5,ans:21},
-    {e:'2a²+a',h:'a=3',a:3,ans:21},{e:'a(a−2)',h:'a=5',a:5,ans:15},
-    {e:'3a²−a',h:'a=2',a:2,ans:10},{e:'(a−1)³',h:'a=3',a:3,ans:8},
-    {e:'a²+3a',h:'a=3',a:3,ans:18},{e:'2(a²−1)',h:'a=3',a:3,ans:16},
-    {e:'(a+4)(a−1)',h:'a=3',a:3,ans:14},{e:'a³−2a',h:'a=2',a:2,ans:4},
-    {e:'4a²−a',h:'a=2',a:2,ans:14},{e:'(2a+1)²',h:'a=2',a:2,ans:25},
-    {e:'a²·2−3',h:'a=3',a:3,ans:15},{e:'(a+1)(a+2)',h:'a=3',a:3,ans:20},
-    {e:'3(a²−2)',h:'a=2',a:2,ans:6},{e:'a²+a+1',h:'a=3',a:3,ans:13},
-    {e:'(3a−1)·a',h:'a=2',a:2,ans:10},{e:'2a²−2a',h:'a=3',a:3,ans:12},
-    {e:'(a+2)²',h:'a=3',a:3,ans:25},{e:'a³+1',h:'a=2',a:2,ans:9},
-    {e:'5a²−10',h:'a=2',a:2,ans:10},{e:'(a−3)(a+3)',h:'a=4',a:4,ans:7},
-    {e:'2a(a+1)',h:'a=3',a:3,ans:24},{e:'a²−a−2',h:'a=4',a:4,ans:10},
-    {e:'(a+1)·a²',h:'a=2',a:2,ans:12},{e:'3a²+3a',h:'a=2',a:2,ans:18},
-    {e:'(2a)²−a',h:'a=3',a:3,ans:33},{e:'a(a+3)−2',h:'a=3',a:3,ans:16},
-    {e:'a²(a−1)',h:'a=3',a:3,ans:18},{e:'(a+3)²−a',h:'a=2',a:2,ans:23},
+    {e:'a² + 2a',h:'a=3',ans:15},{e:'(a+2)²',h:'a=3',ans:25},{e:'2a² − 4',h:'a=3',ans:14},{e:'a(2a−1)',h:'a=4',ans:28},
+    {e:'a³ + 2',h:'a=2',ans:10},{e:'(a−1)(a+1)',h:'a=5',ans:24},{e:'3a² + a',h:'a=2',ans:14},{e:'(2a+1)²',h:'a=2',ans:25},
+    {e:'a² + a + 1',h:'a=4',ans:21},{e:'2a(a−2)',h:'a=5',ans:30},{e:'a³ − a²',h:'a=3',ans:18},{e:'5a² / 2',h:'a=2',ans:10}
   ]
 };
 
 const COLORS=['#ff6b6b','#4ecdc4','#ffe66d','#a29bfe'];
-const AVATARS=['🦁','🐯','🦊','🐺'];
-const MEDALS=['🥇','🥈','🥉','🎖️'];
-const PLACE_LABELS=['🏆 Бірінші!','🥈 Екінші!','🥉 Үшінші!','🎖️ Төртінші!'];
+const AVATARS=['🦁','🦊','🐺','🐯'];
+let diff='easy',cnt=3,players=[],globalStart=0,globalTick=null,finished=0;
 
-let diff='easy',cnt=3;
-let players=[],globalStart=0,globalTick=null,finished=0,raceOver=false;
-
-/* STARS */
-(()=>{const c=document.getElementById('stars');
-  for(let i=0;i<80;i++){const s=document.createElement('div');s.className='star';
-    const sz=Math.random()*2.3+.4;
-    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;
-      animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*3}s`;
-    c.appendChild(s);}
-})();
-
-/* SETUP */
-setCnt(3,document.querySelectorAll('.cnt-btn')[1]);
+/* SETUP FUNCTIONS */
+setCnt(3,null);
 function setCnt(n,btn){
-  cnt=n;document.querySelectorAll('.cnt-btn').forEach(b=>b.classList.remove('on'));
-  btn.classList.add('on');buildPRows();
+  cnt=n;
+  if(btn){
+    document.querySelectorAll('.cnt-btn').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+  }
+  buildPRows();
 }
 function setDiff(d,btn){
-  diff=d;document.querySelectorAll('.d-btn').forEach(b=>b.classList.remove('on'));
+  diff=d;
+  document.querySelectorAll('.d-btn').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
 }
 function buildPRows(){
   const c=document.getElementById('pRows');c.innerHTML='';
   for(let i=0;i<cnt;i++){
-    const saved=players[i]?.name||'';
     c.innerHTML+=`<div class="p-row" style="border-color:${COLORS[i]}">
-      <span style="font-size:1.35rem">${AVATARS[i]}</span>
-      <input class="p-inp" id="pi${i}" placeholder="${i+1}-ойыншы аты" value="${saved}" maxlength="14">
-      <span style="color:${COLORS[i]};font-size:.85rem">●</span>
+      <span>${AVATARS[i]}</span>
+      <input class="p-inp" id="pi${i}" placeholder="${i+1}-ойыншы" maxlength="10">
     </div>`;
   }
 }
 
-/* INIT */
+/* GAME CORE */
 function initGame(){
-  const pool=shuffle([...QDB[diff]]);
   players=[];
+  const pool=shuffle([...QDB[diff]]);
   for(let i=0;i<cnt;i++){
-    const nm=(document.getElementById('pi'+i)?.value.trim())||`Ойыншы ${i+1}`;
-    // Each player gets a non-overlapping slice of 10 questions
-    const qs=pool.slice(i*10,(i+1)*10);
+    const nm=document.getElementById('pi'+i).value || `Ойыншы ${i+1}`;
     players.push({
       name:nm,color:COLORS[i],avatar:AVATARS[i],
-      questions:qs,score:0,correct:0,idx:0,
-      done:false,finishTime:null,
-      qTimer:null,qTimeLeft:15,
-      val:'',locked:false,
+      questions:pool.slice(i*4, (i+4)*4).concat(shuffle([...QDB[diff]])).slice(0,10),
+      score:0,idx:0,correct:0,done:false,val:'',timeLeft:15,locked:false
     });
   }
-  finished=0;raceOver=false;
-  hide('setupScreen');countdown();
+  document.getElementById('setupScreen').classList.add('hidden');
+  countdown();
 }
 
 function countdown(){
-  show('cdScreen');let n=3;
-  document.getElementById('cdNum').textContent=n;
-  document.getElementById('cdTxt').textContent='Дайын бол...';
+  const scr=document.getElementById('cdScreen');
+  const num=document.getElementById('cdNum');
+  scr.classList.remove('hidden');
+  let n=3;
   const iv=setInterval(()=>{
     n--;
-    if(n>0){document.getElementById('cdNum').textContent=n;}
-    else if(n===0){
-      document.getElementById('cdNum').textContent='ЖЕТ!';
-      document.getElementById('cdTxt').textContent='🏁 Жарыс басталды!';
-    }else{clearInterval(iv);hide('cdScreen');startRace();}
-  },900);
+    if(n>0) num.textContent=n;
+    else if(n===0) { num.textContent='ЖЕТ!'; num.style.color='var(--gold)'; }
+    else { clearInterval(iv); scr.classList.add('hidden'); startRace(); }
+  },800);
 }
 
-/* BUILD COLUMNS */
 function startRace(){
-  buildCols();show('gameScreen');
+  buildCols();
+  document.getElementById('gameScreen').classList.remove('hidden');
   globalStart=Date.now();
-  globalTick=setInterval(tickGlobal,500);
-  players.forEach((_,i)=>startQ(i));
+  globalTick=setInterval(updateGlobalClock,500);
+  players.forEach((_,i)=>nextQuestion(i));
 }
 
 function buildCols(){
   const wrap=document.getElementById('colsWrap');wrap.innerHTML='';
   players.forEach((p,i)=>{
     const col=document.createElement('div');
-    col.className='col';col.id='col'+i;
+    col.className='col';
     col.innerHTML=`
-      <div class="col-head" style="border-color:${p.color}">
-        <span class="col-av">${p.avatar}</span>
-        <span class="col-nm" style="color:${p.color}">${p.name}</span>
-        <span class="col-sc" id="sc${i}" style="color:${p.color}">⭐0</span>
+      <div class="col-head" style="border-bottom-color:${p.color}">
+        <div class="col-av">${p.avatar}</div>
+        <div class="col-nm" style="color:${p.color}">${p.name}</div>
+        <div class="col-sc" id="sc${i}">0⭐</div>
       </div>
-      <div class="col-prog"><div class="col-prog-fill" id="prog${i}" style="background:${p.color}"></div></div>
-
       <div class="col-body">
-        <!-- timer + dots row -->
         <div class="timer-row">
-          <div class="ring-wrap">
-            <svg width="36" height="36" viewBox="0 0 36 36">
-              <circle class="ring-bg" cx="18" cy="18" r="14"/>
-              <circle class="ring-fg" id="rfg${i}" cx="18" cy="18" r="14"
-                stroke="${p.color}" stroke-dasharray="88" stroke-dashoffset="0"/>
-            </svg>
-            <div class="ring-num" id="rnum${i}">15</div>
+           <div class="ring-wrap">
+            <svg width="40" height="40"><circle class="ring-bg" cx="20" cy="20" r="16"/><circle class="ring-fg" id="rfg${i}" cx="20" cy="20" r="16" stroke="${p.color}" stroke-dasharray="100.5" stroke-dashoffset="0"/></svg>
+            <div class="ring-num" id="rn${i}">15</div>
           </div>
           <div class="col-dots" id="dots${i}"></div>
         </div>
-
-        <!-- expression -->
         <div class="expr-box">
-          <div class="expr-txt" id="expr${i}"></div>
-          <div class="expr-hint" id="hint${i}"></div>
+          <div class="expr-txt" id="ex${i}"></div>
+          <div class="expr-hint" id="ht${i}"></div>
         </div>
-
-        <!-- answer display -->
-        <div class="ans-disp empty" id="disp${i}">?</div>
+        <div class="ans-disp empty" id="dp${i}">?</div>
         <div class="fb" id="fb${i}"></div>
-
-        <!-- numpad -->
         <div class="numpad">
-          ${[7,8,9,4,5,6,1,2,3].map(n=>`
-            <button class="np-btn" ontouchstart="npPress(${i},${n})" onclick="npPress(${i},${n})">${n}</button>`).join('')}
-          <button class="np-btn" ontouchstart="npPress(${i},0)" onclick="npPress(${i},0)">0</button>
-          <button class="np-btn del" ontouchstart="npDel(${i})" onclick="npDel(${i})">⌫</button>
-          <button class="np-btn sub" id="sb${i}"
-            ontouchstart="submitAns(${i})" onclick="submitAns(${i})">✓ ЖАУАП</button>
+          ${[7,8,9,4,5,6,1,2,3].map(n=>`<button class="np-btn" onclick="press(${i},${n})">${n}</button>`).join('')}
+          <button class="np-btn del" onclick="del(${i})">⌫</button>
+          <button class="np-btn" onclick="press(${i},0)">0</button>
+          <button class="np-btn sub" onclick="submit(${i})">✓</button>
         </div>
       </div>
-
       <div class="col-winner" id="win${i}">
-        <div class="w-crown">👑</div>
-        <div class="w-txt" id="wtxt${i}"></div>
-        <div class="w-sc" id="wsc${i}"></div>
-      </div>
-    `;
+        <div style="font-size:3rem">👑</div>
+        <div style="font-family:'Fredoka One';color:var(--gold);text-align:center" id="wintxt${i}"></div>
+      </div>`;
     wrap.appendChild(col);
-    buildDots(i);
+    const dots=document.getElementById('dots'+i);
+    for(let d=0;d<10;d++) dots.innerHTML+=`<div class="cd" id="d${i}_${d}"></div>`;
   });
 }
 
-function buildDots(pi){
-  const c=document.getElementById('dots'+pi);c.innerHTML='';
-  for(let i=0;i<10;i++){
-    const d=document.createElement('div');
-    d.className='cd'+(i===0?' cur':'');d.id=`d${pi}_${i}`;
-    c.appendChild(d);
-  }
-}
-
-/* QUESTION */
-function startQ(pi){
+function nextQuestion(pi){
   const p=players[pi];
-  if(p.done||raceOver)return;
-  const q=p.questions[p.idx];
-  document.getElementById('expr'+pi).innerHTML=q.e.replace(/a/g,'<span class="vr">a</span>');
-  document.getElementById('hint'+pi).textContent=q.h+' болса → ?';
-  p.val='';p.locked=false;
-  setDisp(pi,'?',true);
-  document.getElementById('sb'+pi).disabled=false;
+  if(p.idx>=10){ finish(pi); return; }
+  p.val=''; p.locked=false; p.timeLeft=15;
+  document.getElementById('dp'+pi).textContent='?';
+  document.getElementById('dp'+pi).className='ans-disp empty';
   document.getElementById('fb'+pi).textContent='';
-  document.getElementById('fb'+pi).className='fb';
-  clearInterval(p.qTimer);
-  p.qTimeLeft=15;updateRing(pi);
-  p.qTimer=setInterval(()=>{
-    p.qTimeLeft--;updateRing(pi);
-    if(p.qTimeLeft<=0){clearInterval(p.qTimer);timeUp(pi);}
+  document.getElementById('ex'+pi).innerHTML=p.questions[p.idx].e.replace('a', '<span class="vr">a</span>');
+  document.getElementById('ht'+pi).textContent=p.questions[p.idx].h + ' болса...';
+  document.getElementById(`d${pi}_${p.idx}`).classList.add('cur');
+  
+  clearInterval(p.timer);
+  p.timer=setInterval(()=>{
+    p.timeLeft--;
+    updateTimerUI(pi);
+    if(p.timeLeft<=0){ clearInterval(p.timer); submit(pi, true); }
   },1000);
 }
 
-function updateRing(pi){
-  const p=players[pi],t=p.qTimeLeft,pct=t/15;
-  document.getElementById('rfg'+pi).style.strokeDashoffset=88*(1-pct);
-  document.getElementById('rfg'+pi).style.stroke=pct>.6?p.color:pct>.3?'#FFD54F':'#EF5350';
-  document.getElementById('rnum'+pi).textContent=t;
+function updateTimerUI(pi){
+  const p=players[pi];
+  const offset=100.5 * (1 - p.timeLeft/15);
+  document.getElementById('rfg'+pi).style.strokeDashoffset=offset;
+  document.getElementById('rn'+pi).textContent=p.timeLeft;
 }
 
-/* NUMPAD */
-function npPress(pi,digit){
-  const p=players[pi];
-  if(p.locked||p.done||raceOver)return;
-  if(p.val.length>=4)return;
-  p.val+=digit;
-  setDisp(pi,p.val,false);
+function press(pi, n){
+  if(players[pi].locked) return;
+  if(players[pi].val.length<4){
+    players[pi].val += n;
+    document.getElementById('dp'+pi).textContent=players[pi].val;
+    document.getElementById('dp'+pi).classList.remove('empty');
+  }
 }
-function npDel(pi){
-  const p=players[pi];
-  if(p.locked||p.done||raceOver)return;
-  p.val=p.val.slice(0,-1);
-  if(p.val==='')setDisp(pi,'?',true);
-  else setDisp(pi,p.val,false);
-}
-function setDisp(pi,txt,empty){
-  const d=document.getElementById('disp'+pi);
-  d.textContent=txt;
-  d.className='ans-disp'+(empty?' empty':'');
+function del(pi){
+  if(players[pi].locked) return;
+  players[pi].val = players[pi].val.slice(0, -1);
+  const dp=document.getElementById('dp'+pi);
+  dp.textContent=players[pi].val || '?';
+  if(!players[pi].val) dp.classList.add('empty');
 }
 
-/* SUBMIT */
-function submitAns(pi){
+function submit(pi, isTimeUp=false){
   const p=players[pi];
-  if(p.locked||p.done||raceOver||p.val==='')return;
-  clearInterval(p.qTimer);
+  if(p.locked || (!p.val && !isTimeUp)) return;
   p.locked=true;
-  document.getElementById('sb'+pi).disabled=true;
-  const val=parseInt(p.val);
-  const q=p.questions[p.idx];
-  const ok=val===q.ans;
-  const bonus=ok?Math.ceil(p.qTimeLeft/3):0;
-  if(ok){p.score+=10+bonus;p.correct++;spawnPt(pi);}
-  const d=document.getElementById('disp'+pi);
-  d.className='ans-disp '+(ok?'ok':'no');
-  setFb(pi,ok,ok?`✅ +${10+bonus}⭐`:`❌ ${q.ans}`);
-  markDot(pi,p.idx,ok);
-  document.getElementById('sc'+pi).textContent='⭐'+p.score;
-  setTimeout(()=>advance(pi),ok?750:1050);
-}
+  clearInterval(p.timer);
+  
+  const correctAns = p.questions[p.idx].ans;
+  const userAns = parseInt(p.val);
+  const isOk = !isTimeUp && (userAns === correctAns);
+  
+  const dp=document.getElementById('dp'+pi);
+  dp.className='ans-disp ' + (isOk?'ok':'no');
+  dp.textContent = isTimeUp ? '⏰' : (p.val || '?');
+  
+  const fb=document.getElementById('fb'+pi);
+  fb.textContent = isOk ? 'ЖАРАЙСЫҢ! +10' : ('ҚАТЕ: ' + correctAns);
+  fb.className='fb ' + (isOk?'ok':'no');
 
-function timeUp(pi){
-  const p=players[pi];
-  if(p.locked)return;
-  p.locked=true;
-  document.getElementById('sb'+pi).disabled=true;
-  const q=p.questions[p.idx];
-  setFb(pi,false,'⏰ '+q.ans);
-  markDot(pi,p.idx,false);
-  setTimeout(()=>advance(pi),1000);
-}
+  if(isOk){ p.score += 10; p.correct++; }
+  document.getElementById('sc'+pi).textContent=p.score+'⭐';
+  document.getElementById(`d${pi}_${p.idx}`).className='cd '+(isOk?'ok':'no');
 
-function advance(pi){
-  const p=players[pi];
-  p.idx++;
-  document.getElementById('prog'+pi).style.width=(p.idx/10*100)+'%';
-  if(p.idx>=10){finish(pi);return;}
-  document.getElementById(`d${pi}_${p.idx-1}`)?.classList.remove('cur');
-  document.getElementById(`d${pi}_${p.idx}`)?.classList.add('cur');
-  setTimeout(()=>startQ(pi),320);
+  setTimeout(()=>{
+    p.idx++;
+    nextQuestion(pi);
+  }, 1000);
 }
 
 function finish(pi){
   const p=players[pi];
-  p.done=true;p.finishTime=Date.now()-globalStart;
+  p.done=true;
   finished++;
-  const place=finished;
-  document.getElementById('wtxt'+pi).textContent=PLACE_LABELS[place-1]||'Аяқтадың!';
-  document.getElementById('wsc'+pi).textContent=`⭐${p.score} | ${p.correct}/10`;
-  const wov=document.getElementById('win'+pi);
-  wov.classList.add('show');
-  if(place===1){fireworks();launchConfetti();}
-  if(finished>=players.length||place===1)setTimeout(showResult,place===1?2400:900);
+  const winbox=document.getElementById('win'+pi);
+  winbox.classList.add('show');
+  document.getElementById('wintxt'+pi).innerHTML=`${finished}-ШІ ОРЫН!<br>${p.score} ҰПАЙ`;
+  if(finished===players.length) showFinalResults();
 }
 
-function setFb(pi,ok,msg){
-  const el=document.getElementById('fb'+pi);
-  el.textContent=msg;el.className='fb '+(ok?'ok':'no');
-}
-function markDot(pi,qi,ok){
-  const d=document.getElementById(`d${pi}_${qi}`);
-  if(d)d.className='cd '+(ok?'ok':'no');
+function updateGlobalClock(){
+  const s=Math.floor((Date.now()-globalStart)/1000);
+  const m=Math.floor(s/60), sec=s%60;
+  document.getElementById('globalClock').textContent=`${m}:${sec<10?'0':''}${sec}`;
 }
 
-/* GLOBAL CLOCK */
-function tickGlobal(){
-  const sec=Math.floor((Date.now()-globalStart)/1000);
-  const m=Math.floor(sec/60),s=sec%60;
-  document.getElementById('globalClock').textContent=m+':'+(s<10?'0':'')+s;
-}
-
-/* RESULT */
-function showResult(){
-  raceOver=true;clearInterval(globalTick);
-  players.forEach(p=>clearInterval(p.qTimer));
-  hide('gameScreen');
-
-  const sorted=[...players].sort((a,b)=>{
-    if(a.done&&b.done)return a.finishTime-b.finishTime;
-    if(a.done)return -1;if(b.done)return 1;
-    return b.score-a.score||b.correct-a.correct;
-  });
-
-  // podium
-  const pod=document.getElementById('podium');pod.innerHTML='';
-  const ord=sorted.length>=2?[sorted[1],sorted[0],sorted[2]].filter(Boolean):[sorted[0]];
-  const pH=[82,122,62],pBg=['#C0C0C0','#FFD700','#CD7F32'];
-  ord.forEach((p,i)=>{
-    const rank=sorted.indexOf(p);
-    pod.innerHTML+=`<div class="pod-col">
-      <div style="font-size:1.7rem">${p.avatar}</div>
-      <div class="pod-name" style="color:${p.color}">${p.name}</div>
-      <div class="pod-block" style="height:${pH[i]||55}px;background:${pBg[i]||'#607D8B'}">${MEDALS[rank]}</div>
-      <div class="pod-score">⭐${p.score}</div>
-    </div>`;
-  });
-
-  const lb=document.getElementById('lbList');lb.innerHTML='';
+function showFinalResults(){
+  clearInterval(globalTick);
+  document.getElementById('gameScreen').classList.add('hidden');
+  document.getElementById('resultScreen').classList.remove('hidden');
+  const sorted=[...players].sort((a,b)=>b.score-a.score);
+  const list=document.getElementById('lbList');
+  list.innerHTML='';
   sorted.forEach((p,i)=>{
-    const t=p.finishTime?fmtTime(p.finishTime):'аяқталмады';
-    lb.innerHTML+=`<div class="lb-row" style="animation-delay:${i*.1}s;border-color:${p.color}44">
-      <div class="lb-rank">${MEDALS[i]||'🎖️'}</div>
-      <div class="lb-av">${p.avatar}</div>
-      <div style="flex:1"><div class="lb-nm" style="color:${p.color}">${p.name}</div>
-        <div class="lb-dt">✅ ${p.correct}/10 | ⏱ ${t}</div></div>
-      <div class="lb-sc" style="color:${p.color}">⭐${p.score}</div>
+    list.innerHTML+=`<div style="display:flex;align-items:center;padding:15px;background:rgba(255,255,255,0.05);margin:5px;border-radius:12px;border-left:5px solid ${p.color}">
+      <span style="font-size:1.5rem;margin-right:15px">${i+1}</span>
+      <span style="font-size:1.5rem">${p.avatar}</span>
+      <div style="flex:1;margin-left:10px;font-weight:bold">${p.name}</div>
+      <div style="font-family:'Fredoka One';font-size:1.3rem">${p.score}⭐</div>
     </div>`;
   });
-  show('resultScreen');
-}
-
-function fmtTime(ms){
-  const s=Math.floor(ms/1000),m=Math.floor(s/60),ss=s%60;
-  return m>0?`${m}м ${ss}с`:`${ss}с`;
-}
-
-/* EFFECTS */
-function spawnPt(pi){
-  const el=document.getElementById('disp'+pi);if(!el)return;
-  const r=el.getBoundingClientRect();
-  const em=['⭐','🎉','✨'];
-  for(let i=0;i<4;i++)setTimeout(()=>{
-    const p=document.createElement('div');p.className='pt';
-    p.textContent=em[Math.floor(Math.random()*em.length)];
-    p.style.left=(r.left+Math.random()*r.width)+'px';
-    p.style.top=r.top+'px';
-    document.body.appendChild(p);setTimeout(()=>p.remove(),1300);
-  },i*65);
-}
-function fireworks(){
-  for(let i=0;i<14;i++)setTimeout(()=>{
-    const f=document.createElement('div');f.className='fw';
-    f.style.left=Math.random()*100+'vw';f.style.top=Math.random()*65+'vh';
-    f.style.background=`hsl(${Math.random()*360},90%,60%)`;
-    document.body.appendChild(f);setTimeout(()=>f.remove(),800);
-  },i*110);
-}
-function launchConfetti(){
-  const em=['🎉','⭐','🏆','✨','🌟','🎊','🥳'];
-  for(let i=0;i<22;i++)setTimeout(()=>{
-    const p=document.createElement('div');p.className='pt';
-    p.textContent=em[Math.floor(Math.random()*em.length)];
-    p.style.left=Math.random()*100+'vw';p.style.top='12vh';
-    p.style.fontSize=(1+Math.random())+'rem';
-    document.body.appendChild(p);setTimeout(()=>p.remove(),1300);
-  },i*75);
 }
 
 function shuffle(arr){
-  const a=[...arr];
-  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
-  return a;
+  for(let i=arr.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]]=[arr[j],arr[i]];
+  }
+  return arr;
 }
-function show(id){document.getElementById(id).classList.remove('hidden');}
-function hide(id){document.getElementById(id).classList.add('hidden');}
-function backSetup(){
-  hide('resultScreen');players=[];finished=0;raceOver=false;
-  clearInterval(globalTick);buildPRows();show('setupScreen');
+
+// Stars BG
+const starWrap=document.getElementById('stars');
+for(let i=0;i<50;i++){
+  const s=document.createElement('div');
+  s.className='star';
+  const size=Math.random()*3;
+  s.style.width=size+'px'; s.style.height=size+'px';
+  s.style.top=Math.random()*100+'%'; s.style.left=Math.random()*100+'%';
+  s.style.animationDuration=(Math.random()*3+2)+'s';
+  starWrap.appendChild(s);
 }
 </script>
 </body>
